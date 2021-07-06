@@ -1,0 +1,105 @@
+{%  extends 'blog/basic.html'%}
+
+{% block title %}  About -mla... {% endblock %}
+{% block body %}
+<main style="background-color:#EEF4F6">
+
+  <section class="py-5 text-center container" style="font-family:serif">
+    <div class="row py-lg-5">
+      <div class="col-lg-12 col-md-4 mx-auto">
+        <h1 class="fw-light">About us</h1>
+        <p class="lead text-muted"><B> My Little Amazon </B> is a small <b>WEB DEVELOPMENT PROJECT</b>. Being India on digital platfom small e-commerce store for fashion and lifestyle products, which stand for mla. aims at providing a hassle free and enjoyable shopping experience to shoppers across the country with the widest range of brands and products on its portal. The brand is making a conscious effort to bring the power of fashion to shoppers with an array of the latest and trendiest products available in the country.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+               <img src="https://www.bing.com/th?id=OIP.k3HylMYTdu_iPOcf00BNrQD6D6&w=99&h=99&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="250px" width="100px"  alt="Instagram">
+               <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+               </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAM1BMVEUAeNcQgNogidwwkd9AmuFQouRgq+Zws+mAvOuQxO6gzfCw1fPA3vXQ5vjg7/rw9/3///8iGRG6AAABSElEQVRYw+2WyZaEIAxFA+LIdP//a3shtNqntChTu/atmPLIAElEHjx4cA07+ggA0Y/2Y/GhCFfE4TPxVAVDqKPUTmEDQAJiJ9LFMiE0GuIyEPoJkhERMQmmPgDZNakP5EEsUM47wMqQgaFNPlqRGZa6tsAsYmMLQ5fBGxHJ8GuyhSwixkPuruVNglgU8duyL1fH6pdTzPWEh35b7gudSTBfBhBYdczk/Uadduwse4GlXtAdLBDxlXjv29cKNOBchbGNYDwliBBWZJgOgLQO5hKmlzGEVIbp6EORvNviLJJucxCE416AzdHu3AXje4Lx3AnTxn1B4GB6S2D+PIM7BDoNbpqgdqI6jOqHJBHm9cGmW09Z/5nU3/mQUKLbIcLgnHMuXCYUfUpTJ1V9WlcXFn1p0xdXfXnXNxj6FucLTdYX2rwHD/4bfgBxRCqwLwNdOwAAAABJRU5ErkJggg=="  width="250px" width="100px" alt="Official web page">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col">
+         <div class="card shadow-sm">
+            <img src="https://www.bing.com/th?id=AMMS_61666e9ecf8ab8627d000fd91fee1452&w=75&h=75&c=7&rs=1&qlt=80&o=6&cdv=1&pid=16.1" width="250px" width="100px" alt="YouTube">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="col">
+          <div class="card shadow-sm">
+             <img src="https://www.bing.com/th?id=AMMS_0c6677ab3d9b81ef06694aae09b00cb0&w=75&h=75&c=7&rs=1&qlt=80&o=6&cdv=1&pid=16.1" width="250px" width="100px" alt="Twitter">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+
+</main>
+{% endblock %}
+
+{% block js %}
+<script>
+console.log('working');
+if(localStorage.getItem('cart') == null)
+{
+var cart={};
+}
+else{
+cart= JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+
+console.log('clicked');
+var idstr= this.id.toString();
+console.log(idstr);
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+
+$('#popcart').popover();
+document.getElementById("popcart").setAttribute('data-content', '<h5>Cart for your items in my shopping cart</h5>');
+
+</script>
+{% endblock%}
