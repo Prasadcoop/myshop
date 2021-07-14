@@ -90,6 +90,7 @@ def support(request):
     params = {'allProds': allProds}
     return render(request, 'blog/support.html', params)
 
-def footer(request):
+def order_history(request):
 
-    return render(request, 'blog/footer.html')
+    return render(request, 'blog/payment.html')
+

@@ -1,8 +1,19 @@
 {%  extends 'blog/basic.html' %}
 
 {% block title %}checkout--mla...{% endblock %}
+{% block css%}
+    .breadcrumb{
+          background-color:#e0badd;
+    }
+    body{
+      background-color:#EEF4F6;
+    }
+   .btn btn-primary{
+       background-color:#6195ce;
+   }
+{% endblock%}
 {% block body %}
-<div class="backcl" style="background-color:#EEF4F6">
+<div class="backcl">
 <div class="container" >
     <div class="col my-4">
     <h2>step 1 -My Little Amazon Cart Express Checkout - Review Your Cart items</h2>
@@ -97,11 +108,22 @@ else{
 }
 document.getElementById('cart').innerHTML = sum;
 document.getElementById('totalPrice').innerHTML = totalPrice;
+function submit(element){
+    var current =element.style.backgroundColor;
+    if(current == "#6195ce"){
+     element.style.backgroundColor = "#6195ce";
+    }
+    else{
+      element.style.backgroundColor ="#6195ce";
+    }
+
+}
+
 $('#itemsJson').val(JSON.stringify(cart));
 {% if thank%}
 alert(' Thanks for Order please checkout Delivery details Your product id {{id}}. And not forgot to send feedback with us...  GO Tracker for Track Your Product ');
 localStorage.clear();
-document.location ="/blog";
+document.location ="/blog/payment/";
 
 {% endif %}
 

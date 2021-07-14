@@ -1,8 +1,15 @@
 {% extends 'blog/basic.html' %}
 
 {% block title%} Contact Us - My Awesome Cart{% endblock %}
+{% block css %}
+        body{
+             background-color:#EEF4F6;
+
+         }
+{% endblock %}
 {% block body %}
-<div class="backcl" style="background-color:#EEF4F6">
+
+<div class="backbody" >
 <div class="container my-3">
     <h3>Contact Us</h3>
     <form action="/blog/contact/" method="post">{% csrf_token %}
@@ -25,11 +32,23 @@
     <label for="desc">How May We Help You?</label>
     <textarea class="form-control" id="desc" name='desc' rows="3"></textarea>
   </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+
+           <button id="submit" onclick="donefun()"  class="btn btn-success">Submit</button>
+
 </form>
 
 
 
 </div>
     </div>
+{% endblock %}
+{% block js%}
+<script>
+function donefun(){
+
+            document.getElementById("submit").InnerHTML=("YES ITS DONE YOU GET SOLUTION ABOUT YOUR PROBLEM");
+            console.log('hellow world');
+            alert(" it done thanks you ...");
+}
+ </script>
 {% endblock %}

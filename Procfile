@@ -1,1 +1,1 @@
-web: gunicorn maw.wsgi --log-file -
+web: gunicorn maw.wsgi
